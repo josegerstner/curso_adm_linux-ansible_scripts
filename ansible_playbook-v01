@@ -1,0 +1,10 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+  - name: asegurar que este instalado NTP
+    yum: name=ntp state=present
+
+  - name: asegurar que este corriendo NTP
+    service: name=ntpd state=started enebled=yes
+
