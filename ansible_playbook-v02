@@ -1,0 +1,16 @@
+
+---
+- hosts: server2
+  tasks:
+
+  - name: verificar version
+    command: uname -a
+    register: uname_resultado
+
+  - name: es ubuntu?
+    debug: msg="es ubuntu!"
+    when: "'Ubuntu' in uname_resultado.stdout"
+
+  - name: no es :(
+    debug: msg="No es ubuntu"
+    when: "'Ubuntu' not in uname_resultado.stdout"
