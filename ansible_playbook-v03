@@ -1,0 +1,21 @@
+
+---
+- hosts: server2
+  tasks:
+
+  - name: install ntpdate
+    package:
+      name: ntpdate
+      state: present
+    tags:
+      - instalacion
+      - ntp
+
+  - name: install build-tools
+    package:
+      name: build-tools
+      state: present
+    tags:
+      - instalacion
+      - build-tools
+
